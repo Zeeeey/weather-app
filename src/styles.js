@@ -2,13 +2,9 @@ const styles = {
   body: {
     color: "#fff",
   },
-  aquaColor: {
-    backgroundColor: " #5fcebd",
+  blueColor: {
+    backgroundColor: "rgb(21,126,251)",
     
-  },
-  root: {
-    backgroundColor: "red",
-    color: "green",
   },
   cityText: {
     fontFamily: 'Arial',
@@ -20,7 +16,7 @@ const styles = {
     alignItems: "center",
     height: "300px",
     width: "100%",
-    backgroundColor: " #5fcebd",
+    backgroundColor: "rgb(21,126,251)",
     color: "#fff",
     margin: "15px",
     fontSize: "4em",

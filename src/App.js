@@ -1,10 +1,11 @@
 import "./App.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { CircularProgress } from "@material-ui/core";
 import { getWeatherDetails } from "./actions/weatherActions";
 import Weather from "./components/Weather";
-import { CircularProgress } from "@material-ui/core";
-
 class App extends Component {
   state = { unit: "metric" };
 
@@ -35,6 +36,7 @@ class App extends Component {
             handleChange={(e) => this.handleChange(e)}
           />
         )}
+        <ToastContainer />
       </div>
     );
   }
