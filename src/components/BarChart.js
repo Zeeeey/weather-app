@@ -12,7 +12,7 @@ class BarChart extends React.Component {
     const { selectedDay } = this.props;
     const data = {
       labels: selectedDay.map((day) =>
-        moment(day.date).format("DD-MMM-YY, h:mm a")
+        moment(day.date).format("DD-MMM-YY, h:mm A")
       ),
       datasets: [
         {
@@ -46,6 +46,47 @@ class BarChart extends React.Component {
       <>
         <Bar
           data={data}
+          options={{
+            responsive: true,
+            scales: {
+              x: {
+                display: true,
+                title: {
+                  display: true,
+                  text: "Date and Time",
+                  color: "white",
+                  font: {
+                    family: "Comic Sans MS",
+                    size: "12em",
+                    weight: "bold",
+                  },
+                },
+              },
+              y: {
+                display: true,
+                title: {
+                  display: true,
+                  text: "Temperature",
+                  color: "white",
+                  font: {
+                    family: "Comic Sans MS",
+                    size: "12em",
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              title: {
+                display: true,
+                text: "Weather Forecast",
+                color: "white",
+                font: { weight: "bold", size: "15em" },
+              },
+            },
+          }}
         />
       </>
     );

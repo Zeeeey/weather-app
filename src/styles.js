@@ -4,11 +4,10 @@ const styles = {
   },
   blueColor: {
     backgroundColor: "rgb(21,126,251)",
-    
   },
   cityText: {
-    fontFamily: 'Arial',
-    fontSize: '5em',
+    fontFamily: "Arial",
+    fontSize: "5em",
   },
   itemDiv: {
     display: "flex",
@@ -20,15 +19,16 @@ const styles = {
     color: "#fff",
     margin: "15px",
     fontSize: "4em",
+    cursor: "pointer",
   },
   paddingTB50: {
     padding: "50px 0px",
   },
   paddingTop10: {
-    paddingTop: '10px',
+    paddingTop: "10px",
   },
   paddingTop30: {
-    paddingTop: '30px',
+    paddingTop: "30px",
   },
   dflex: {
     display: "flex",
@@ -40,13 +40,13 @@ const styles = {
   },
   itemTemp: {
     fontSize: "35px",
-    paddingTop: '0px',
-    marginTop: '0px',
+    paddingTop: "0px",
+    marginTop: "0px",
   },
   itemText: {
-    color: 'black',
-    paddingBottom: '20px'
-  }
+    color: "black",
+    paddingBottom: "20px",
+  },
 };
 
 export default styles;
