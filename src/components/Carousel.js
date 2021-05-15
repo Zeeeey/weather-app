@@ -61,7 +61,7 @@ class CarouselComp extends Component {
   render() {
     const { showBars, days } = this.state;
     const { classes, degree } = this.props;
-    const { itemDiv, font16, font22, paddingTB50, paddingTop30, itemText } =
+    const { itemDiv, font16, itemTemp, paddingTB50, paddingTop30, itemText } =
       classes;
     return (
       <>
@@ -81,11 +81,11 @@ class CarouselComp extends Component {
                       alt="icon"
                     />
                   </div>
-                  <h3 className={font22}>
+                  <h2 className={itemTemp}>
                     {temp}
                     &deg;
                     {degree === "metric" ? "C" : "F"}
-                  </h3>
+                  </h2>
                   <p className={itemText}>
                     <b>
                       {desc.toUpperCase()}

@@ -42,8 +42,10 @@ const styles = {
   font16: {
     fontSize: "16px",
   },
-  font22: {
-    fontSize: "22px",
+  itemTemp: {
+    fontSize: "35px",
+    paddingTop: '0px',
+    marginTop: '0px',
   },
   itemText: {
     color: 'black',

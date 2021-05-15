@@ -46,45 +46,6 @@ class BarChart extends React.Component {
       <>
         <Bar
           data={data}
-          options={{
-            maintainAspectRatio: true,
-            title: {
-              display: true,
-              text: "Temperature",
-              fontSize: 200,
-            },
-            legend: {
-              display: true,
-              position: "right",
-            },
-          }}
-          // options={{
-          //   maintainAspectRatio: true,
-          //   responsive: true,
-          //   scales: {
-          //     yAxes: [
-          //       {
-          //         scaleLabel: {
-          //           display: true,
-          //           labelString: "COUNT",
-          //           fontStyle: "bold",
-          //           fontSize: 17,
-          //         },
-          //       },
-          //     ],
-          //     xAxes: [
-          //       {
-          //         ticks: { fontStyle: "bold" },
-          //         scaleLabel: {
-          //           display: true,
-          //           labelString: "BASESTATION NAME",
-          //           fontStyle: "bold",
-          //           fontSize: 17,
-          //         },
-          //       },
-          //     ],
-          //   },
-          // }}
         />
       </>
     );
