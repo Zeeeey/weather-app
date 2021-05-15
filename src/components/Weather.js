@@ -17,12 +17,12 @@ class Weather extends Component {
 
   render() {
     const { classes, city, lists, degree, unit, handleChange } = this.props;
-    const { body, paddingTop10, paddingTop30, aquaColor, cityText } = classes;
+    const { body, paddingTop10, paddingTop30, blueColor, cityText } = classes;
     return (
       <div className={body}>
         <CssBaseline />
         <AppBar position="relative">
-          <Toolbar className={aquaColor}>
+          <Toolbar className={blueColor}>
             <CloudIcon />
             <Typography variant="h6">Weather App</Typography>
           </Toolbar>
