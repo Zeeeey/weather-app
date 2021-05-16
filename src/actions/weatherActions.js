@@ -26,7 +26,7 @@ export const getWeatherDetails = (unit) => async (dispatch) => {
       else toast.info("Something Went Wrong!");
     }
   } catch (error) {
-    toast("Something Went Wrong!");
+    toast.info("Something Went Wrong!");
     dispatch({
       type: types.FETCHING_STOPS,
       payload: false,
