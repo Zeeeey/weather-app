@@ -2,13 +2,15 @@ import { toast } from "react-toastify";
 import * as types from "../types/weatherTypes";
 import { GET_WEATHER_DETAILS_URL } from "../urls/weatherURL";
 
-export const getWeatherDetails = (unit) => async (dispatch) => {
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+
+export const getWeatherDetails = (cityName, countryCode, unit) => async (dispatch) => {
   try {
     dispatch({
       type: types.FETCHING_STARTS,
       payload: true,
     });
-    const response = await fetch(`${GET_WEATHER_DETAILS_URL}&units=${unit}`);
+    const response = await fetch(`${GET_WEATHER_DETAILS_URL}?q=${cityName},${countryCode}&APPID=${API_KEY}&cnt=40&units=${unit}`);
     const data = await response.json();
     if (data.list && data.list.length) {
       dispatch({

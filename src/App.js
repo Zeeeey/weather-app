@@ -7,16 +7,27 @@ import { CircularProgress } from "@material-ui/core";
 import { getWeatherDetails } from "./actions/weatherActions";
 import Weather from "./components/Weather";
 class App extends Component {
-  state = { unit: "metric" };
+  state = {  cityName: "Lagos", countryCode: "ng", unit: "metric" };
 
   componentDidMount() {
-    this.props.getWeatherDetails(this.state.unit);
+    const { cityName, countryCode, unit } = this.state;
+    this.props.getWeatherDetails(cityName, countryCode, unit);
   }
   handleChange = (e) => {
     const { value } = e.target;
+    const { cityName, countryCode } = this.state;
     this.setState({ unit: value });
-    this.props.getWeatherDetails(value);
+    this.props.getWeatherDetails(cityName, countryCode, value);
   };
+  handleLocation = (e) => {
+    const { name, value } = e.target;
+    this.setState({ ...this.state, [name]: value });
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { cityName, countryCode, unit } = this.state;
+    this.props.getWeatherDetails(cityName, countryCode, unit);
+  }
 
   render() {
     const { city, lists, degree, isFetching } = this.props;
@@ -32,8 +43,10 @@ class App extends Component {
             city={city}
             lists={lists}
             degree={degree}
-            unit={this.state.unit}
+            stateObject={this.state}
             handleChange={(e) => this.handleChange(e)}
+            handleLocation={(e) => this.handleLocation(e)}
+            handleSubmit={(e) => this.handleSubmit(e)}
           />
         )}
         <ToastContainer />

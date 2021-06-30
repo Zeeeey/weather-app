@@ -5,6 +5,11 @@ import {
   CssBaseline,
   Toolbar,
   Container,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
 } from "@material-ui/core";
 import CloudIcon from "@material-ui/icons/Cloud";
 import { withStyles } from "@material-ui/core/styles";
@@ -13,11 +18,20 @@ import CarouselComp from "./Carousel";
 import Temperature from "./Temperature";
 
 class Weather extends Component {
-  state = {};
-
+  state = {
+    ngCities: ['Lagos', 'Katsina', 'Anambra'],
+    mdCities: ['Chișinău', 'Bălți', 'Tiraspol'],
+    ukCities: ['London', 'Birmingham', 'Glasgow'],
+  };
+  
+  ngCities = this.state.ngCities.map(ngCity => <MenuItem value={ngCity}>{ngCity}</MenuItem>) 
+  mdCities = this.state.mdCities.map(mdCity => <MenuItem value={mdCity}>{mdCity}</MenuItem>) 
+  ukCities = this.state.ukCities.map(ukCity => <MenuItem value={ukCity}>{ukCity}</MenuItem>) 
+  
   render() {
-    const { classes, city, lists, degree, unit, handleChange } = this.props;
-    const { body, paddingTop10, paddingTop30, blueColor, cityText } = classes;
+    const { classes, city, lists, degree, handleChange, stateObject, handleLocation, handleSubmit } = this.props;
+    const { cityName, countryCode, unit } = stateObject;
+    const { body, paddingTop10, paddingTop30, blueColor, cityText, selectDiv, marginTop20, textWhite } = classes;
     return (
       <div className={body}>
         <CssBaseline />
@@ -38,6 +52,37 @@ class Weather extends Component {
               >
                 {city.name}, {city.country}
               </Typography>
+              <div className={paddingTop10}>
+                <FormControl variant="outlined">
+                  <InputLabel id="countryCode" className={textWhite}>Country</InputLabel>
+                  <Select
+                    labelId="countryCode"
+                    name="countryCode"
+                    value={countryCode}
+                    className={selectDiv}
+                    onChange={handleLocation}
+                  >
+                    <MenuItem value="ng">Nigeria</MenuItem>
+                    <MenuItem value="md">Moldova</MenuItem>
+                    <MenuItem value="uk">United Kingdom</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl variant="outlined">
+                  <InputLabel id="cityName" className={textWhite}>City</InputLabel>
+                  <Select
+                    labelId="cityName"
+                    name="cityName"
+                    value={cityName}
+                    className={selectDiv}
+                    onChange={handleLocation}
+                  >
+                    {countryCode === 'md' ? this.mdCities : countryCode === 'uk' ? this.ukCities : this.ngCities }
+                  </Select>
+                </FormControl>
+                <Button variant="contained" color="white"  className={marginTop20} onClick={handleSubmit}>
+                  Search
+                </Button>
+              </div>
               <Temperature
                 classes={classes}
                 unit={unit}

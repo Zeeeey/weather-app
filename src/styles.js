@@ -47,6 +47,17 @@ const styles = {
     color: "black",
     paddingBottom: "20px",
   },
+  selectDiv: {
+    color: 'white',
+    margin: '10px',
+    fontSize: '20px'
+  },
+  marginTop20: {
+    marginTop: "20px",
+  },
+  textWhite: {
+    color: "white",
+  },
 };
 
 export default styles;
